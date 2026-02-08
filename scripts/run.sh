@@ -6,7 +6,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 
 PROJECT=litcn
 SERVER=slayer.marioslab.io
-SERVER_DIR=/home/badlogic
+SERVER_DIR=/home/shaneholloman
 DOMAIN=litcn.shaneholloman.at
 
 sync_files() {

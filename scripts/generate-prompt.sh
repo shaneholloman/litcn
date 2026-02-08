@@ -13,16 +13,16 @@ append_file() {
 }
 
 # Add all src/next files
-append_file "/Users/badlogic/workspaces/litcn/src/next/index.ts"
-append_file "/Users/badlogic/workspaces/litcn/src/next/component.ts"
-append_file "/Users/badlogic/workspaces/litcn/src/next/signals.ts"
-append_file "/Users/badlogic/workspaces/litcn/src/next/template.ts"
-append_file "/Users/badlogic/workspaces/litcn/src/next/directives/directive.ts"
-append_file "/Users/badlogic/workspaces/litcn/src/next/directives/repeat.ts"
+append_file "/Users/shaneholloman/workspaces/litcn/src/next/index.ts"
+append_file "/Users/shaneholloman/workspaces/litcn/src/next/component.ts"
+append_file "/Users/shaneholloman/workspaces/litcn/src/next/signals.ts"
+append_file "/Users/shaneholloman/workspaces/litcn/src/next/template.ts"
+append_file "/Users/shaneholloman/workspaces/litcn/src/next/directives/directive.ts"
+append_file "/Users/shaneholloman/workspaces/litcn/src/next/directives/repeat.ts"
 
 # Add demo files
-append_file "/Users/badlogic/workspaces/litcn/example/src/pages/next-demo.ts"
-append_file "/Users/badlogic/workspaces/litcn/example/src/pages/react-todo-demo.ts"
+append_file "/Users/shaneholloman/workspaces/litcn/example/src/pages/next-demo.ts"
+append_file "/Users/shaneholloman/workspaces/litcn/example/src/pages/react-todo-demo.ts"
 
 # Add the prompt at the end
 cat >> "$OUTPUT" << 'EOF'

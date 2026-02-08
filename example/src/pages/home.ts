@@ -450,7 +450,7 @@ render(App(), document.body)
                         ${icon(Code, "sm")}
                         <span>GitHub</span>
                      `,
-                     onClick: () => window.open("https://github.com/badlogic/litcn", "_blank"),
+                     onClick: () => window.open("https://github.com/shaneholloman/litcn", "_blank"),
                   })}
                   ${Button({
                      variant: "outline",

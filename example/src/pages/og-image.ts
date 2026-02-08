@@ -165,7 +165,7 @@ export class OgImagePage extends LitElement {
                         <span>Web Components</span>
                      </div>
                   </div>
-                  <p class="text-xs text-muted-foreground">github.com/badlogic/litcn</p>
+                  <p class="text-xs text-muted-foreground">github.com/shaneholloman/litcn</p>
                </div>
             </div>
          </div>

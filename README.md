@@ -328,7 +328,7 @@ The litcn repository includes both the component library and a comprehensive exa
 
 ```bash
 # Clone the repository
-git clone https://github.com/badlogic/litcn.git
+git clone https://github.com/shaneholloman/litcn.git
 cd litcn
 
 # Install dependencies
@@ -417,7 +417,7 @@ See the `/example` directory for a complete working example with all components,
 ## Resources
 
 - [npm Package](https://www.npmjs.com/package/litcn)
-- [GitHub Repository](https://github.com/badlogic/litcn)
+- [GitHub Repository](https://github.com/shaneholloman/litcn)
 - [Live Demo](https://litcn.shaneholloman.at)
 - [Lit Documentation](https://lit.dev)
 - [Tailwind CSS v4](https://tailwindcss.com)
