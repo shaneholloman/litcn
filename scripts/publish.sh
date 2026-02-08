@@ -20,24 +20,21 @@ fi
 
 # Run checks (format, lint, type-check)
 echo "Running checks..."
-npm run check
-if [ $? -ne 0 ]; then
+if ! npm run check; then
     echo "Error: Checks failed"
     exit 1
 fi
 
 # Build the project
 echo "Building project..."
-npm run build
-if [ $? -ne 0 ]; then
+if ! npm run build; then
     echo "Error: Build failed"
     exit 1
 fi
 
 # Bump version
 echo "Bumping $VERSION_TYPE version..."
-npm version $VERSION_TYPE
-if [ $? -ne 0 ]; then
+if ! npm version "$VERSION_TYPE"; then
     echo "Error: Failed to bump version"
     exit 1
 fi
@@ -47,16 +44,14 @@ NEW_VERSION=$(node -p "require('./package.json').version")
 
 # Push to git
 echo "Pushing to git..."
-git push && git push --tags
-if [ $? -ne 0 ]; then
+if ! { git push && git push --tags; }; then
     echo "Error: Failed to push to git"
     exit 1
 fi
 
 # Publish to npm
 echo "Publishing to npm..."
-npm publish --access public
-if [ $? -ne 0 ]; then
+if ! npm publish --access public; then
     echo "Error: Failed to publish to npm"
     exit 1
 fi

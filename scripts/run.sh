@@ -11,18 +11,18 @@ DOMAIN=litcn.shaneholloman.at
 
 sync_files() {
     echo "Syncing files..."
-    ssh -t $SERVER "mkdir -p $SERVER_DIR/$DOMAIN"
+    ssh -t "$SERVER" "mkdir -p $SERVER_DIR/$DOMAIN"
     rsync -avz --delete \
       example/dist/ \
-      $SERVER:$SERVER_DIR/$DOMAIN/dist/
+      "$SERVER:$SERVER_DIR/$DOMAIN/dist/"
 
     rsync -avz \
       docker/ \
-      $SERVER:$SERVER_DIR/$DOMAIN/docker/
+      "$SERVER:$SERVER_DIR/$DOMAIN/docker/"
 
     rsync -avz \
       scripts/run.sh \
-      $SERVER:$SERVER_DIR/$DOMAIN/
+      "$SERVER:$SERVER_DIR/$DOMAIN/"
 }
 
 build() {
@@ -44,18 +44,18 @@ build)
     ;;
 prod)
     echo "Starting production server..."
-    docker compose -p $PROJECT -f docker/docker-compose.yml -f docker/docker-compose.prod.yml up -d --build
+    docker compose -p "$PROJECT" -f docker/docker-compose.yml -f docker/docker-compose.prod.yml up -d --build
     ;;
 stop)
     echo "Stopping services..."
-    docker compose -p $PROJECT -f docker/docker-compose.yml -f docker/docker-compose.prod.yml down
+    docker compose -p "$PROJECT" -f docker/docker-compose.yml -f docker/docker-compose.prod.yml down
     ;;
 logs)
-    docker compose -p $PROJECT -f docker/docker-compose.yml -f docker/docker-compose.prod.yml logs -f
+    docker compose -p "$PROJECT" -f docker/docker-compose.yml -f docker/docker-compose.prod.yml logs -f
     ;;
 logs-remote)
     echo "Streaming logs from $DOMAIN..."
-    ssh -t $SERVER "cd $SERVER_DIR/$DOMAIN && ./run.sh logs"
+    ssh -t "$SERVER" "cd $SERVER_DIR/$DOMAIN && ./run.sh logs"
     ;;
 deploy)
     build
@@ -63,7 +63,9 @@ deploy)
     sync_files
 
     echo "Restarting services..."
-    ssh $SERVER "cd $SERVER_DIR/$DOMAIN && ./run.sh stop && ./run.sh prod"
+    # Variables intentionally expand client-side
+    # shellcheck disable=SC2029
+    ssh "$SERVER" "cd $SERVER_DIR/$DOMAIN && ./run.sh stop && ./run.sh prod"
 
     echo "✔ Deployed to https://$DOMAIN"
     ;;

@@ -4,7 +4,7 @@
 OUTPUT="prompt.txt"
 
 # Clear the file
-> "$OUTPUT"
+true > "$OUTPUT"
 
 # Function to append file with delimiter
 append_file() {
