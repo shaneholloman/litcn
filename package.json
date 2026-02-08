@@ -1,0 +1,64 @@
+{
+   "name": "litcn",
+   "version": "0.1.0",
+   "description": "Lightweight Lit components with shadcn-inspired theming and Tailwind CSS integration",
+   "author": "shaneholloman",
+   "type": "module",
+   "main": "./dist/index.js",
+   "module": "./dist/index.js",
+   "types": "./dist/index.d.ts",
+   "files": [
+      "dist",
+      "src/styles",
+      "README.md",
+      "llms.txt"
+   ],
+   "exports": {
+      ".": {
+         "types": "./dist/index.d.ts",
+         "import": "./dist/index.js"
+      },
+      "./dist/*": "./dist/*",
+      "./styles/*": "./src/styles/*"
+   },
+   "scripts": {
+      "build": "tsc",
+      "build:example": "cd example && npm run build",
+      "dev": "npm install && cd example && npm install && cd .. && concurrently -k -n \"litcn,example\" -c \"blue,magenta\" \"npm run dev:tsc\" \"npm run dev:example\"",
+      "dev:tsc": "npm install && tsc --watch --preserveWatchOutput",
+      "dev:example": "cd example && npm run dev",
+      "check": "biome check . --write && tsc --noEmit && cd example && npm run check",
+      "prepare": "husky",
+      "test": "vitest",
+      "test:ui": "vitest --ui"
+   },
+   "dependencies": {
+      "@preact/signals-core": "^1.13.0",
+      "class-variance-authority": "^0.7.1",
+      "diff": "^8.0.3",
+      "highlight.js": "^11.11.1",
+      "html-parse-string": "^0.0.9",
+      "katex": "^0.16.28",
+      "lucide": "^0.563.0",
+      "marked": "^17.0.1",
+      "tailwind-merge": "^3.4.0",
+      "tailwind-variants": "^3.2.2",
+      "uhtml": "^5.0.9"
+   },
+   "peerDependencies": {
+      "lit": "^3.3.2"
+   },
+   "devDependencies": {
+      "@biomejs/biome": "^2.3.14",
+      "@types/node": "^24.5.2",
+      "@vitest/ui": "^4.0.18",
+      "concurrently": "^9.2.1",
+      "happy-dom": "^20.5.0",
+      "husky": "^9.1.7",
+      "prettier": "^3.8.1",
+      "string-dedent": "^3.0.2",
+      "tsx": "^4.21.0",
+      "typescript": "^5.9.3",
+      "vitest": "^4.0.18"
+   }
+}

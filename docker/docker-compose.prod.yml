@@ -1,0 +1,13 @@
+services:
+   web:
+      labels:
+         caddy: litcn.shaneholloman.at
+         caddy.reverse_proxy: "{{upstreams 80}}"
+      networks:
+         - caddy-network
+         - internal
+
+networks:
+   caddy-network:
+      external: true
+   internal:

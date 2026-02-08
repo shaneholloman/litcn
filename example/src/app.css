@@ -1,0 +1,8 @@
+/* Import the theme (includes base styles, dark mode, and utilities) */
+@import "litcn/styles/themes/default.css";
+
+/* Tell Tailwind to scan litcn dist files for classes */
+@source "../node_modules/litcn/dist";
+
+/* Import Tailwind */
+@import "tailwindcss";
